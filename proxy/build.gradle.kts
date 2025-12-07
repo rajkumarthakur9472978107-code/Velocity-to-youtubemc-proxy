@@ -3,25 +3,25 @@ import io.papermc.fill.model.BuildChannel
 
 plugins {
     application
-    id("velocity-init-manifest")
+    id("youtubemc-init-manifest")
     alias(libs.plugins.shadow)
     alias(libs.plugins.fill)
 }
 
 application {
-    mainClass.set("com.velocitypowered.proxy.Velocity")
+    mainClass.set("com.Youtubemcpowered.proxy.Youtubemc")
     applicationDefaultJvmArgs += listOf("-Dvelocity.packet-decode-logging=true");
 }
 
 tasks {
     withType<Checkstyle> {
-        exclude("**/com/velocitypowered/proxy/protocol/packet/**")
+        exclude("**/com/youtubemcpowered/proxy/protocol/packet/**")
     }
 
     jar {
         manifest {
-            attributes["Implementation-Title"] = "Velocity"
-            attributes["Implementation-Vendor"] = "Velocity Contributors"
+            attributes["Implementation-Title"] = "Youtubemc proxy"
+            attributes["Implementation-Vendor"] = "Youtubemcproxy Contributors"
             attributes["Multi-Release"] = "true"
         }
     }
@@ -112,7 +112,7 @@ tasks {
 
 val projectVersion = version as String
 fill {
-    project("velocity")
+    project("youtubemc-proxy")
 
     build {
         channel = BuildChannel.STABLE
